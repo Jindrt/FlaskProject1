@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h1 class="mb-4">清华大学学术数据系统</h1>
+        <p class="lead mb-4">
+            本系统可以随机生成清华大学师生及论文数据，并存储在MySQL数据库中。
+        </p>
+
+        <form method="POST" action="/generate">
+            <button type="submit" class="btn btn-primary btn-lg">
+                生成随机数据并存入数据库
+            </button>
+        </form>
+
+        <div class="mt-5">
+            <h3>系统功能</h3>
+            <ul class="list-group">
+                <li class="list-group-item">随机生成教师/学生基本信息</li>
+                <li class="list-group-item">生成符合学术规范的论文标题</li>
+                <li class="list-group-item">完整的关系型数据存储</li>
+                <li class="list-group-item">Web界面展示数据</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

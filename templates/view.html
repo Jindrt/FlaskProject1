@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mb-4">
+    <h2>清华大学学术数据</h2>
+    <a href="/" class="btn btn-outline-primary">返回首页</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5>教师信息</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>职称</th>
+                            <th>学院</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for f in faculty %}
+                        <tr>
+                            <td>{{ f.name }}</td>
+                            <td>{{ f.title }}</td>
+                            <td>{{ f.department }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#" class="btn btn-sm btn-primary">查看更多</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <h5>学生信息</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>年级</th>
+                            <th>导师</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in students %}
+                        <tr>
+                            <td>{{ s.name }}</td>
+                            <td>{{ s.grade }}</td>
+                            <td>{{ s.advisor_name }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#" class="btn btn-sm btn-success">查看更多</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h5>论文信息</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>标题</th>
+                            <th>作者</th>
+                            <th>影响因子</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in papers %}
+                        <tr>
+                            <td>{{ p.title[:20] }}...</td>
+                            <td>{{ p.author_name }}</td>
+                            <td>{{ p.impact_factor }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#" class="btn btn-sm btn-info">查看更多</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
